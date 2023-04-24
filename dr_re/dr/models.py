@@ -7,10 +7,10 @@ import joblib
 
 GENDER =(
     (0,"Female"),
-    (1,"Male"),
+    (1,"Male"), 
     )
 
-
+ 
 class Data(models.Model):
     
     main_features =((0,"high_fever"), (1,"nausea"), (2,"skin_rash"), (3,"yellowish_skin"), 
@@ -22,14 +22,14 @@ class Data(models.Model):
                     (21,"irritation_in_anus"),(22,"abdominal_pain"),(23,"chills"))
     
     name = models.CharField(max_length=100,null=True)
-    age = models.PositiveIntegerField(validators=[MinLengthValidator(13),MaxLengthValidator(19)])
+    age = models.PositiveIntegerField()
     sex = models.PositiveIntegerField(choices=main_features,null=True)
     predictions = models.CharField(max_length=100,blank=True)
     date = models.DateTimeField(auto_now_add=True)
     
     
     def save(self,*arg,**kwargs):
-        ml_model = joblib.load("dr_re/ml_model/ml_model.joblib")  
+        ml_model = joblib.load("../dr_re/ml_model/ml_model.joblib")  
         self.preditions = ml_model.predict()
         
         return super().save(*arg,**kwargs)

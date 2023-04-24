@@ -1,9 +1,9 @@
-django ==4.2
-catboost
+django==4.2
+catboost==0.1.1
 numpy
 pandas
 matplotlib
 seaborn
 sklearn
 joblib==1.2.0
-django-multiselectfield==0.1.12
+django-multiselectfield==0.1.1
