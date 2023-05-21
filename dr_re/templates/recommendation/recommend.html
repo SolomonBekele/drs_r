@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'heartcare/css/recommendation/recommend.css'%}"> {% endblock %} {% block maincontent %}
+
+<h1>Select your Symptoms:</h1>
+<form method="POST">
+    {% csrf_token %} {% for item in symptom %}
+    <input type="checkbox" name="symptom" value="{{ item }}">{{ item }}<br> {% endfor %}
+    <br><br>
+    <input type="submit" value="Predict">
+</form>
+{% if disease %}
+<h2>Prediction Result:</h2>
+<p>{{ disease }}</p>
+{% endif %} {% endblock maincontent %}
