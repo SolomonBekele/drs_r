@@ -42,6 +42,7 @@ p {
 
 body a:hover {
     color: #222;
+    background-color: #f3f5f7;
 }
 
 .btn-1 {
@@ -56,6 +57,7 @@ body a:hover {
     margin-right: 10px;
     transition: all ease-in-out 0.3s;
     -webkit-transition: all ease-in-out 0.3s;
+    text-decoration: none;
 }
 
 .btn-1:hover {

@@ -60,5 +60,7 @@ def recommend(request):
           return render(request, 'recommendation/recommend.html', {'symptom': symptom, 'disease': disease})
      return render(request, "recommendation/recommend.html",{'symptom': symptom})
 
-def interview(request):
-     return render(request,"recommendation/interview.html",{})
+def interview0(request):
+     return render(request,"recommendation/interview0.html",{})
+def interview1(request):
+     return render(request,"recommendation/interview1.html",{})
