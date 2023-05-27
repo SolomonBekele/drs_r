@@ -9,8 +9,8 @@
     <div class="container col-6 main my-5 ">
         <div class="row  d-flex align-items-center ">
             <div class="col-12 col-md-6 main-text align-item-center ">
-                <div class="image-container">
-                    <img class="img d-flex justify-content-center" onclick="selectImage('page1.htm1')" src="{% static 'heartcare/images/recommend/male.png' %} " alt=" ">
+                <div class="image-container text-center">
+                    <img class="img " onclick="selectImage('page1.html')" src="{% static 'heartcare/images/recommend/male.png' %} " alt=" ">
                     <p class="text-center">Male</p>
                 </div>
 
@@ -19,34 +19,54 @@
             </div>
             <div class="col-12 col-md-6 align-items-center ">
                 <div class="image-container">
-                    <img class="img d-flex justify-content-center" onclick="selectImage('page1.html2')" src="{% static 'heartcare/images/recommend/female.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page2.html')" src="{% static 'heartcare/images/recommend/female.png' %} " alt=" ">
                     <p class="text-center">Female</p>
                 </div>
             </div>
+            <div class="text-center text-danger" id="message"></div>
             <div class="container-fluid ">
                 <hr>
             </div>
 
             <div class="col d-flex justify-content-center pr-5 ">
-                <button id="nextButton" class="btn-1" disabled>Next</button>
+                <button id="nextButton" class="btn-1">Next</button>
             </div>
         </div>
 
     </div>
     <script>
-        var selectedImage = null;
-        var nextButton = document.getElementById('nextButton');
+        var page1 = {
+            clicked: false
+        };
+        var page2 = {
+            clicked: false
+        };
 
         function selectImage(page) {
-            selectedImage = page;
-            nextButton.disabled = false;
+            if (page === 'page1.html') {
+                page1.clicked = true;
+                page2.clicked = false;
+            } else if (page === 'page2.html') {
+                page1.clicked = false;
+                page2.clicked = true;
+            }
+
+            if (page1.clicked || page2.clicked) {
+                document.getElementById('nextButton').disabled = false;
+            } else {
+                document.getElementById('nextButton').disabled = true;
+            }
         }
 
+        var nextButton = document.getElementById('nextButton');
         nextButton.addEventListener('click', function() {
-            if (selectedImage === 'page1.html') {
-                window.location.href = 'page1.html';
-            } else if (selectedImage === 'page2.html') {
-                window.location.href = 'page2.html';
+            if (page1.clicked) {
+                window.location.href = "{% url 'interview3'%}";
+            }
+            if (page2.clicked) {
+                window.location.href = "{% url 'interview3'%}";
+            } else {
+                message.innerText = "Please select your gender.";
             }
         });
     </script>

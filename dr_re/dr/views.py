@@ -58,7 +58,15 @@ def recommend(request):
           print (predictions)
 
           return render(request, 'recommendation/recommend.html', {'symptom': symptom, 'disease': disease})
+
      return render(request, "recommendation/recommend.html",{'symptom': symptom})
+
+
+
+
+
+def interview3(request):
+     return render(request,"recommendation/interview3.html")
 def interview2(request):
      return render(request,"recommendation/interview2.html")
 def interview0(request):
