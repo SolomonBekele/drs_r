@@ -73,3 +73,5 @@ def interview0(request):
      return render(request,"recommendation/interview0.html",{})
 def interview1(request):
      return render(request,"recommendation/interview1.html",{})
+def interview4(request):
+     return render(request,"recommendation/interview4.html")
