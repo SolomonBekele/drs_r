@@ -7,5 +7,6 @@ urlpatterns = [
     path("interview2",interview2,name="interview2"),
     path("interview3",interview3,name="interview3"),
     path("interview4",interview4,name="interview4"),
+    path("vom_interview",vom_interview,name="vom_interview"),
     path("recommend",recommend,name='recommend'),
 ]

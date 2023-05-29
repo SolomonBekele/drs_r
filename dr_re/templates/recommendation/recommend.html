@@ -3,9 +3,44 @@
 
 <h1>Select your Symptoms:</h1>
 <form method="POST">
-    {% csrf_token %} {% for item in symptom %}
-    <input type="checkbox" name="symptom" value="{{ item }}">{{ item }}<br> {% endfor %}
+    {% csrf_token %}
+    <div class="row">
+        <div class="col">
+            {% for item in symptom1 %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="symptom" value="{{ item }}" id="symptom{{ forloop.counter }}">
+                <label class="form-check-label" for="symptom{{ forloop.counter }}">{{ item }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col">
+            {% for item in symptom2 %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="symptom" value="{{ item }}" id="symptom{{ forloop.counter }}">
+                <label class="form-check-label" for="symptom{{ forloop.counter }}">{{ item }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col">
+            {% for item in symptom3 %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="symptom" value="{{ item }}" id="symptom{{ forloop.counter }}">
+                <label class="form-check-label" for="symptom{{ forloop.counter }}">{{ item }}</label>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col">
+            {% for item in symptom4 %}
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="symptom" value="{{ item }}" id="symptom{{ forloop.counter }}">
+                <label class="form-check-label" for="symptom{{ forloop.counter }}">{{ item }}</label>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
     <br><br>
+
     <input type="submit" value="Predict">
 </form>
 {% if disease %}

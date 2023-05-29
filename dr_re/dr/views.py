@@ -27,6 +27,10 @@ def recommend(request):
                      'diarrhoea','family_history','phlegm','muscle_pain','congestion','patches_in_throat',
                      'unsteadiness','loss_of_balance','stomach_pain','spotting_ urination','dischromic _patches',
                     'dizziness','inflammatory_nails','acidity']
+     symptom1= symptom[:33]
+     symptom2= symptom[33:66]
+     symptom3= symptom[66:99]
+     symptom4= symptom[99:]
      l=[0]*132
      ll={0: '(vertigo) Paroymsal  Positional Vertigo',1: 'AIDS',2: 'Acne',3: 'Alcoholic hepatitis',
          4: 'Allergy',5: 'Arthritis',6: 'Bronchial Asthma',7: 'Cervical spondylosis',8: 'Chicken pox',
@@ -56,15 +60,30 @@ def recommend(request):
           
           disease = ll[predictions.tolist()[0]]
           print (predictions)
+          symptom1= symptom[:33]
+          symptom2= symptom[33:66]
+          symptom3= symptom[66:99]
+          symptom4= symptom[99:]
+          
+          return render(request, 'recommendation/recommend.html', {
+               'symptom': symptom,
+               'symptom1': symptom1,
+               'symptom2': symptom2,
+               'symptom3': symptom3,
+               'symptom4': symptom4,
+               'disease': disease})
 
-          return render(request, 'recommendation/recommend.html', {'symptom': symptom, 'disease': disease})
+     return render(request, "recommendation/recommend.html",{
+          'symptom': symptom,
+          'symptom1': symptom1,
+          'symptom2': symptom2,
+          'symptom3': symptom3,
+          'symptom4': symptom4,})
 
-     return render(request, "recommendation/recommend.html",{'symptom': symptom})
 
 
-
-
-
+def vom_interview(request):
+     return render(request,"recommendation/vom_interview.html")
 def interview3(request):
      return render(request,"recommendation/interview3.html")
 def interview2(request):
