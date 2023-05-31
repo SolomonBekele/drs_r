@@ -9,7 +9,7 @@
     <div class="container col-6 main my-5">
         <div class="row d-flex align-items-center">
             <div id="waiting-text" style="display: none;">
-                <p class="h2 p-5 text-center">Please wait...</p>
+                <p class="h2 p-5 text-center"></p>
             </div>
             <div class="row d-flex align-items-center">
                 <div id="cough">
@@ -69,9 +69,6 @@
                     </div>
                 </div>
                 <div class="text-center text-danger" id="message"></div>
-                <div class="container-fluid">
-                    <hr>
-                </div>
             </div>
         </div>
     </div>
@@ -81,6 +78,19 @@
             const coughYesButton = document.querySelector("#cough_yes");
             const coughNoButton = document.querySelector("#cough-no");
             const feverHighButton = document.querySelector("#fever-high");
+            const vomitingYesButton = document.querySelector("#vomiting-yes");
+            const vomitingNoButton = document.querySelector("#vomiting-no");
+            const waitingText = document.querySelector("#waiting-text");
+
+            function showWaitingText(message) {
+                const waitingTextMessage = document.querySelector("#waiting-text p");
+                waitingTextMessage.textContent = message;
+                waitingText.style.display = "block";
+            }
+
+            function hideWaitingText() {
+                waitingText.style.display = "none";
+            }
 
             coughYesButton.addEventListener("click", function() {
                 // Hide cough section
@@ -88,13 +98,12 @@
                 coughSection.style.display = "none";
 
                 // Show waiting text
-                const waitingText = document.querySelector("#waiting-text");
-                waitingText.style.display = "block";
+                showWaitingText("Please wait... Checking fever...");
 
                 // Delay before showing the next section
                 setTimeout(function() {
                     // Hide waiting text
-                    waitingText.style.display = "none";
+                    hideWaitingText();
 
                     // Show fever section
                     const yesFeverSection = document.querySelector("#yes_fever");
@@ -108,13 +117,12 @@
                 coughSection.style.display = "none";
 
                 // Show waiting text
-                const waitingText = document.querySelector("#waiting-text");
-                waitingText.style.display = "block";
+                showWaitingText("Please wait... Checking stomach pain...");
 
                 // Delay before showing the next section
                 setTimeout(function() {
                     // Hide waiting text
-                    waitingText.style.display = "none";
+                    hideWaitingText();
 
                     // Show no-fever section
                     const noFeverSection = document.querySelector("#no-fever");
@@ -128,17 +136,54 @@
                 feverSection.style.display = "none";
 
                 // Show waiting text
-                const waitingText = document.querySelector("#waiting-text");
-                waitingText.style.display = "block";
+                showWaitingText("Please wait... Checking vomiting...");
 
                 // Delay before showing the next section
                 setTimeout(function() {
                     // Hide waiting text
-                    waitingText.style.display = "none";
+                    hideWaitingText();
 
-                    // Show vomiting section
-                    const vomitingSection = document.querySelector("#yes-stomach");
-                    vomitingSection.style.display = "block";
+                    // Show stomach section
+                    const stomachSection = document.querySelector("#yes-stomach");
+                    stomachSection.style.display = "block";
+                }, 2000); // Delay in milliseconds (2 seconds)
+            });
+
+            vomitingYesButton.addEventListener("click", function() {
+                // Hide vomiting section
+                const vomitingSection = document.querySelector("#yes-stomach");
+                vomitingSection.style.display = "none";
+
+                // Show waiting text
+                showWaitingText("Please wait... Processing...");
+
+                // Delay before showing the result
+                setTimeout(function() {
+                    // Hide waiting text
+                    hideWaitingText();
+
+                    // Show result
+                    const resultMessage = document.querySelector("#message");
+                    resultMessage.textContent = "You might have a medical condition. Please consult a doctor for further evaluation.";
+                }, 2000); // Delay in milliseconds (2 seconds)
+            });
+
+            vomitingNoButton.addEventListener("click", function() {
+                // Hide vomiting section
+                const vomitingSection = document.querySelector("#yes-stomach");
+                vomitingSection.style.display = "none";
+
+                // Show waiting text
+                showWaitingText("Please wait... Processing...");
+
+                // Delay before showing the result
+                setTimeout(function() {
+                    // Hide waiting text
+                    hideWaitingText();
+
+                    // Show result
+                    const resultMessage = document.querySelector("#message");
+                    resultMessage.textContent = "You might not have a medical condition. However, if your symptoms persist, it is recommended to consult a doctor.";
                 }, 2000); // Delay in milliseconds (2 seconds)
             });
         });
