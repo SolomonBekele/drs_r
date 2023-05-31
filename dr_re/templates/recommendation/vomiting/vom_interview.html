@@ -8,46 +8,41 @@
     <h1>telehakim</h1>
     <div class="container col-6 main my-5 ">
         <div class="row  d-flex align-items-center ">
-            <div class="col-lg-12 pt-2">
-                <div class="card bg-primary">
-                    <h3 class="p-2 text-center text-white">From the symptoms below, please pick one that's you the most</h3>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 main-text align-item-center ">
+            <div class="col-12 col-md-4 main-text align-item-center ">
                 <div class="image-container text-center">
-                    <img class="img img-fluid " onclick="selectImage('page1.html')" src="{% static 'heartcare/images/recommend/symptoms/cough men.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page1.html')" src="{% static 'heartcare/images/recommend/symptoms/cough men.png' %} " alt=" ">
                     <p class="text-center">coughing</p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 align-items-center ">
+            <div class="col-12 col-md-4 align-items-center ">
                 <div class="image-container">
-                    <img class="img img-fluid" onclick="selectImage('page2.html')" src="{% static 'heartcare/images/recommend/symptoms/headache men.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page2.html')" src="{% static 'heartcare/images/recommend/symptoms/headache men.png' %} " alt=" ">
                     <p class="text-center">headache</p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 align-items-center ">
+            <div class="col-12 col-md-4 align-items-center ">
                 <div class="image-container">
-                    <img class="img img-fluid" onclick="selectImage('page3.html')" src="{% static 'heartcare/images/recommend/symptoms/vomiting.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page3.html')" src="{% static 'heartcare/images/recommend/symptoms/vomiting.png' %} " alt=" ">
                     <p class="text-center">vomiting</p>
                 </div>
             </div>
         </div>
         <div class="row  d-flex align-items-center ">
-            <div class="col-12 col-lg-4 main-text align-item-center ">
+            <div class="col-12 col-md-4 main-text align-item-center ">
                 <div class="image-container text-center">
-                    <img class="img img-fluid" onclick="selectImage('page4.html')" src="{% static 'heartcare/images/recommend/symptoms/abdominal pain.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page4.html')" src="{% static 'heartcare/images/recommend/symptoms/abdominal pain.png' %} " alt=" ">
                     <p class="text-center">abdominalpain</p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 align-items-center ">
+            <div class="col-12 col-md-4 align-items-center ">
                 <div class="image-container">
-                    <img class="img img-fluid" onclick="selectImage('page5.html')" src="{% static 'heartcare/images/recommend/symptoms/fatigue.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page5.html')" src="{% static 'heartcare/images/recommend/symptoms/fatigue.png' %} " alt=" ">
                     <p class="text-center">fatigue</p>
                 </div>
             </div>
-            <div class="col-12 col-lg-4 align-items-center ">
+            <div class="col-12 col-md-4 align-items-center ">
                 <div class="image-container">
-                    <img class="img img-fluid" onclick="selectImage('page6.html')" src="{% static 'heartcare/images/recommend/symptoms/fever.png' %} " alt=" ">
+                    <img class="img " onclick="selectImage('page6.html')" src="{% static 'heartcare/images/recommend/symptoms/fever.png' %} " alt=" ">
                     <p class="text-center">fever</p>
                 </div>
             </div>
@@ -60,7 +55,7 @@
                 <div class="col-auto">
                     <button id="previousButton" class="btn-1 btn-primary">Prev</button>
                 </div>
-
+                <!-- <h1>{{list}}</h1> -->
                 <div class="col-auto">
                     <button id="nextButton" class="btn-1 btn-primary ">Next</button>
                 </div>
@@ -112,19 +107,19 @@
         }
         var previousButton = document.getElementById('previousButton');
         previousButton.addEventListener('click', function() {
-            window.location.href = "{% url 'interview3' %}";
+            window.location.href = "{% url 'interview4' %}";
         });
 
         var nextButton = document.getElementById('nextButton');
         nextButton.addEventListener('click', function() {
             if (page1.clicked) {
-                window.location.href = "{% url 'cough_interview1'%}";
+                window.location.href = "{% url 'interview1'%}";
             }
             if (page2.clicked) {
                 window.location.href = "{% url 'interview2'%}";
             }
             if (page3.clicked) {
-                window.location.href = "{% url 'vom_interview'%}";
+                window.location.href = "{% url 'interview3'%}";
             }
             if (page4.clicked) {
                 window.location.href = "{% url 'interview4'%}";
